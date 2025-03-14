@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Vitthal Rukmini Temple, Pandharpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/translations.js"></script>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #ffd8a1, #ffc77d);
+            color: #5a3c2a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content area styles */
+        main {
+            padding-top: 120px; /* Space for fixed header */
+            min-height: calc(100vh - 120px);
+        }
+
+        .top-nav {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #ffecd1;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Language selector */
+        .language-selector {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        #language-select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            appearance: none;
+            padding-right: 25px;
+        }
+
+        /* Search container */
+        .search-container {
+            display: flex;
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 8px 12px;
+            border: 1px solid #a32525;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #a32525;
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* Main navigation with dropdowns */
+        .main-nav {
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 0;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav li a {
+            color: #5a3c2a;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav li a:hover {
+            background-color: #ffd8a1;
+            color: #a32525;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background-color: rgba(255, 239, 211, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown .dropdown {
+            position: relative;
+        }
+
+        .dropdown .dropdown > .dropdown-menu {
+            top: 0;
+            left: 100%;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            white-space: nowrap;
+        }
+
+        /* Dropdown indicators */
+        .dropdown > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        .dropdown .dropdown > a::after {
+            content: '\f105';
+            float: right;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding-top: 100px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                background-color: rgba(255, 239, 211, 0.5);
+            }
+
+            .dropdown .dropdown > .dropdown-menu {
+                left: 0;
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body data-page-title="temple_name">
+    <header>
+        <div class="top-nav">
+            <div class="container">
+                <a href="home.html" class="logo" data-translate="temple_name">Shri Vitthal Rukmini Temple</a>
+                <div class="right-section">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="mr">मराठी</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="search-input" data-translate="search_placeholder" placeholder="Search...">
+                        <button type="button" data-translate="search_button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="home.html" data-page="home" class="nav-link" data-translate="nav_home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-page="temple" class="nav-link" data-translate="nav_temple">Temple</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="shrivitthal.html" data-page="shrivitthal" class="nav-link" data-translate="nav_shrivitthal">Shri Vitthal</a></li>
+                            <li><a href="rukmini.html" data-page="rukmini" class="nav-link" data-translate="nav_rukmini">Rukmini</a></li>
+                            <li><a href="pandhari.html" data-page="pandhari" class="nav-link" data-translate="nav_pandhari">Pandhari</a></li>
+                            <li><a href="#" data-page="vari" class="nav-link" data-translate="nav_vari">Vari</a></li>
+                            <li><a href="contactus.html" data-page="contactus" class="nav-link" data-translate="nav_howtoreach">How to reach</a></li>
+                            <li><a href="placestovisit.html" data-page="placestovisit" class="nav-link" data-translate="nav_placestovisit">Places to visit</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="trust" class="nav-link" data-translate="nav_abouttrust">About Trust</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-page="aboutus" class="nav-link" data-translate="nav_aboutus">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-page="committee" class="nav-link" data-translate="nav_committee">Committee</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="commitee.html" data-page="Commitee" class="nav-link" data-translate="nav_committeemembers">Committee Members</a></li>
+                                    <li><a href="aboutmembers.html" data-page="executive" class="nav-link" data-translate="nav_aboutmembers">About Members</a></li>
+                                    <li><a href="advisorycouncil.html" data-page="advisory" class="nav-link" data-translate="nav_advisorycouncil">Advisory Council</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="dailyupdates" class="nav-link" data-translate="nav_dailyupdates">Daily Updates</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="dailyschedule.html" data-page="dailyschedule" class="nav-link" data-translate="nav_dailyschedule">Daily Schedule</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="onlineservices" class="nav-link" data-translate="nav_onlineservices">Online Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="livedarshan.html" data-page="livedarshan" class="nav-link" data-translate="nav_livedarshan">Live Darshan</a></li>
+                            <li><a href="poojaservices.html" data-page="poojaservices" class="nav-link" data-translate="nav_poojaservices">Pooja Services</a></li>
+                            <li><a href="passbooking.html" data-page="passbooking" class="nav-link" data-translate="nav_passbooking">Pass Booking</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="elibrary" class="nav-link" data-translate="nav_elibrary">E-Library</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-page="elibrary-sub1" class="nav-link">Sub Page 1</a></li>
+                            <li><a href="#" data-page="elibrary-sub2" class="nav-link">Sub Page 2</a></li>
+                            <li><a href="#" data-page="elibrary-sub3" class="nav-link">Sub Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contactus.html" data-page="contactus" class="nav-link" data-translate="nav_contactus">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page content goes here -->
+    </main>
+
+    <footer>
+        <p data-translate="copyright"> 2025 Shri Vitthal Rukmini Temple | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Language selector functionality
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('change', function() {
+            document.documentElement.lang = this.value;
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchButton = document.querySelector('.search-container button');
+        
+        searchButton.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+
+        function performSearch(query) {
+            if (query.trim() === '') return;
+            // Implement search functionality here
+            console.log('Searching for:', query);
+        }
+    </script>
+</body>
+</html>

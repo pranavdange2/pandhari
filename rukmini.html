@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rukmini - Shri Vitthal Rukmini Temple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/translations.js"></script>
+    <style>
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .deity-section {
+            background: rgba(255, 239, 211, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-heading h1 {
+            color: #a32525;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .image-gallery img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #9e2d2d;
+            font-size: 24px;
+            margin: 30px 0 20px;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid #a32525;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body data-page-title="rukmini_page">
+    <header>
+        <div class="top-nav">
+            <div class="container">
+                <a href="home.html" class="logo" data-translate="temple_name">Shri Vitthal Rukmini Temple</a>
+                <div class="right-section">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="mr">मराठी</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search..." data-translate="search_placeholder">
+                        <button type="button" data-translate="search_button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <div class="page-heading">
+                <h1 data-translate="rukmini_title">Rukmini</h1>
+                <p data-translate="rukmini_subtitle">The Divine Consort of Lord Vitthal</p>
+            </div>
+
+            <div class="deity-section">
+                <div class="image-gallery">
+                    <img src="images/rukmini1.jpg" alt="Rukmini Devi Temple View" data-translate="rukmini_img_1_alt">
+                    <img src="images/rukmini2.jpg" alt="Rukmini Devi Idol" data-translate="rukmini_img_2_alt">
+                </div>
+
+                <h2 data-translate="rukmini_intro_title">Introduction to Rukmini</h2>
+                <p data-translate="rukmini_intro_text">Rukmini, the principal queen of Lord Krishna, is worshipped as the divine consort of Lord Vitthal in Pandharpur. She is considered an incarnation of Goddess Lakshmi and represents devotion, patience, and divine love. Her temple, situated on the banks of the Chandrabhaga River, stands as a testament to her spiritual significance in the Varkari tradition.</p>
+
+                <div class="history-section">
+                    <h2 data-translate="rukmini_history_title">Historical Significance</h2>
+                    <p data-translate="rukmini_history_text">According to legend, Rukmini came to Pandharpur with Lord Krishna and chose to stay here permanently. The separate temple dedicated to her symbolizes her independent spiritual identity and her role as the divine mother to all devotees. The temple architecture reflects the artistic excellence of ancient times, with intricate carvings and spiritual symbolism adorning its walls.</p>
+
+                    <h2 data-translate="rukmini_significance_title">Spiritual Significance</h2>
+                    <p data-translate="rukmini_significance_text">Rukmini's presence in Pandharpur holds deep spiritual significance. She is seen as the embodiment of divine love and devotion, teaching devotees the path of selfless service and unconditional love. Her temple serves as a place of worship where devotees seek her blessings for spiritual enlightenment and material prosperity.</p>
+
+                    <div class="quote" data-translate="rukmini_quote">
+                        "In the sacred town of Pandharpur, where the Chandrabhaga flows with grace, Rukmini stands as the eternal mother, blessing devotees with divine embrace."
+                    </div>
+
+                    <h2 data-translate="rukmini_worship_title">Worship and Traditions</h2>
+                    <p data-translate="rukmini_worship_text">Devotees visiting Pandharpur make it a point to seek blessings at both the Vitthal temple and the Rukmini temple. Special prayers and rituals are performed during festivals, particularly during Kartik Ekadashi and Ashadhi Ekadashi. The tradition of visiting both temples symbolizes the complete spiritual experience, as Rukmini and Vitthal are considered inseparable in divine union.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize translations
+            updatePageLanguage(document.getElementById('language-select').value);
+            
+            // Language selector functionality
+            document.getElementById('language-select').addEventListener('change', function() {
+                updatePageLanguage(this.value);
+            });
+
+            // Search functionality
+            document.querySelector('.search-container button').addEventListener('click', function() {
+                const query = document.getElementById('search-input').value;
+                if (query) {
+                    performSearch(query);
+                }
+            });
+        });
+
+        function performSearch(query) {
+            // Implement search functionality
+            console.log('Searching for:', query);
+        }
+    </script>
+    <footer>
+        &copy; 2025 Shri Vitthal Rukmini Temple | All Rights Reserved
+    </footer>
+</body>
+</html>

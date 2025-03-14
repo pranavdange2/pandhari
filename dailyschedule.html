@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Schedule - Shri Vitthal Rukmini Temple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #ffd8a1, #ffc77d);
+            color: #5a3c2a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            padding-top: 120px;
+            min-height: calc(100vh - 120px);
+        }
+
+        .top-nav {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            color: #ffecd1;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-selector {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        #language-select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            appearance: none;
+            padding-right: 25px;
+        }
+
+        .search-container {
+            display: flex;
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 8px 12px;
+            border: 1px solid #a32525;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #a32525;
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* Main navigation */
+        .main-nav {
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 10px 0;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: #5a3c2a;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .main-nav a:hover {
+            color: #e77d11;
+        }
+
+        /* Page specific styles */
+        .page-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-heading h1 {
+            color: #a32525;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-heading .subheading {
+            font-size: 20px;
+            color: #5a3c2a;
+            font-weight: lighter;
+        }
+
+        .schedule-container {
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .box {
+            background: rgba(255, 248, 225, 0.95);
+            padding: 25px;
+            border: 4px solid #a32525;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(163, 37, 37, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(163, 37, 37, 0.3);
+        }
+
+        .box h3 {
+            color: #a32525;
+            font-weight: bold;
+            border-bottom: 3px solid #e77d11;
+            display: inline-block;
+            padding-bottom: 8px;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .box p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 10px 0;
+            color: #5a3c2a;
+        }
+
+        .box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #e77d11, #a32525);
+        }
+
+        .footer-note {
+            text-align: center;
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #a32525;
+            border-radius: 8px;
+        }
+
+        .animated { 
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding-top: 100px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .schedule-container {
+                grid-template-columns: 1fr;
+            }
+
+            .box {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <div class="container">
+                <a href="home.html" class="logo">Shri Vitthal Rukmini Temple</a>
+                <div class="right-section">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="mr">मराठी</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="dailyschedule.html">Daily Schedule</a></li>
+                    <li><a href="poojaservices.html">Pooja Services</a></li>
+                    <li><a href="livedarshan.html">Live Darshan</a></li>
+                    <li><a href="donationportal.html">Donation Portal</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>Temple Daily Schedule</h1>
+                <div class="subheading">Spiritual Timings & Rituals</div>
+            </div>
+
+            <div class="schedule-container">
+                <div class="box animated">
+                    <h3>Morning Rituals</h3>
+                    <p>📃 4:00 AM - Opening of the gate of Namdev Payari</p>
+                    <p>🎶 4:30 AM - Kakada Bhajan</p>
+                    <p>🙏 4:30 AM - 5:30 AM - Nityapooja</p>
+                </div>
+                <div class="box animated">
+                    <h3>Darshan Timings</h3>
+                    <p>🌅 6:00 AM - 11:00 AM</p>
+                    <p>⏳ 11:15 AM - 4:30 PM</p>
+                    <p>🌙 5:00 PM - 11:15 PM</p>
+                </div>
+                <div class="box animated">
+                    <h3>Special Offerings</h3>
+                    <p>🍻 11:00 AM - Mahanaivedya (Offering of lunch to Lord)</p>
+                    <p>🧣 4:30 PM - Poshakh (Clothing of Lord)</p>
+                </div>
+                <div class="box animated">
+                    <h3>Evening Rituals</h3>
+                    <p>🛔 6:45 PM - Dhoop Arati</p>
+                    <p>🌙 11:30 PM - Shej Arati</p>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                For any festival-specific schedule, kindly check temple updates. 📿
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Language selector functionality
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('change', function() {
+            document.documentElement.lang = this.value;
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchButton = document.querySelector('.search-container button');
+        
+        searchButton.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+
+        function performSearch(query) {
+            if (query.trim() === '') return;
+            // Implement search functionality here
+            console.log('Searching for:', query);
+        }
+    </script>
+</body>
+</html>

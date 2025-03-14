@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja Booking - Shri Vitthal Rukmini Temple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #ffd8a1, #ffc77d);
+            color: #5a3c2a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            padding-top: 120px;
+            min-height: calc(100vh - 120px);
+        }
+
+        .top-nav {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #ffecd1;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-selector {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        #language-select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            appearance: none;
+            padding-right: 25px;
+        }
+
+        .search-container {
+            display: flex;
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 8px 12px;
+            border: 1px solid #a32525;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #a32525;
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* Main navigation with dropdowns */
+        .main-nav {
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 0;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav li a {
+            color: #5a3c2a;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav li a:hover {
+            background-color: #ffd8a1;
+            color: #a32525;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background-color: rgba(255, 239, 211, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown .dropdown {
+            position: relative;
+        }
+
+        .dropdown .dropdown > .dropdown-menu {
+            top: 0;
+            left: 100%;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            white-space: nowrap;
+        }
+
+        /* Dropdown indicators */
+        .dropdown > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        .dropdown .dropdown > a::after {
+            content: '\f105';
+            float: right;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 239, 211, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Page specific styles */
+        .page-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-heading h1 {
+            color: #a32525;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .page-heading p {
+            color: #5a3c2a;
+            font-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            color: #5a3c2a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #a32525;
+            text-align: center;
+            padding: 15px;
+        }
+
+        th {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            font-size: 18px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff5e1;
+        }
+
+        tr:hover {
+            background: #ffe2b3;
+            transition: background 0.3s ease;
+        }
+
+        h2 {
+            text-align: center;
+            color: #9e2d2d;
+            font-size: 24px;
+            margin: 30px 0 20px;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding-top: 100px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <div class="container">
+                <a href="home.html" class="logo">Shri Vitthal Rukmini Temple</a>
+                <div class="right-section">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="mr">मराठी</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="home.html" data-page="home" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-page="temple" class="nav-link">Temple</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="shrivitthal.html" data-page="shrivitthal" class="nav-link">Shri Vitthal</a></li>
+                            <li><a href="rukmini.html" data-page="rukmini" class="nav-link">Rukmini</a></li>
+                            <li><a href="pandhari.html" data-page="pandhari" class="nav-link">Pandhari</a></li>
+                            <li><a href="#" data-page="vari" class="nav-link">Vari</a></li>
+                            <li><a href="contactus.html" data-page="contactus" class="nav-link">How to reach</a></li>
+                            <li><a href="placestovisit.html" data-page="placestovisit" class="nav-link">Places to visit</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="trust" class="nav-link">About Trust</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-page="aboutus" class="nav-link">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-page="committee" class="nav-link">Committee</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="commitee.html" data-page="Commitee" class="nav-link">Commitee Members</a></li>
+                                    <li><a href="aboutmembers.html" data-page="executive" class="nav-link">About Members</a></li>
+                                    <li><a href="advisorycouncil.html" data-page="advisory" class="nav-link">Advisory Council</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="dailyupdates" class="nav-link">Daily Updates</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="dailyschedule.html" data-page="dailyschedule" class="nav-link">Daily Schedule</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="onlineservices" class="nav-link">Online Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="livedarshan.html" data-page="livedarshan" class="nav-link">Live Darshan</a></li>
+                            <li><a href="poojaservices.html" data-page="poojaservices" class="nav-link">Pooja Services</a></li>
+                            <li><a href="passbooking.html" data-page="passbooking" class="nav-link">Pass Booking</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="elibrary" class="nav-link">E-Library</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-page="elibrary-sub1" class="nav-link">Sub Page 1</a></li>
+                            <li><a href="#" data-page="elibrary-sub2" class="nav-link">Sub Page 2</a></li>
+                            <li><a href="#" data-page="elibrary-sub3" class="nav-link">Sub Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contactus.html" data-page="contactus" class="nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>Pooja Booking</h1>
+                <p>Book your pooja services at Shri Vitthal Rukmini Temple</p>
+            </div>
+
+            <h2>Details of Pooja Types and Entry</h2>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Type of Pooja</th>
+                    <th>Fee</th>
+                    <th>Time</th>
+                    <th>Entry Gate</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Padya Pooja of Shri Vitthal and Shri Rukmini for 5 Devotees</td>
+                    <td>₹5000/-</td>
+                    <td>11 PM to 12 PM <br>shri.Vitthal pooja- 10 pooja <br> Shri. Rukmini Mata -10 pooja <br> Pooja Duration 5 mins. </td>
+                    <td>Shri Sant Namdev payri, Mukha Darshan Row</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Daily Pooja of Shri Vitthal (for 10 persons)<br>(only allowed 6 persons in gabhara)</td>
+                    <td>₹25000/-</td>
+                    <td>4:00 AM - 5:00 AM</td>
+                    <td>Shri Rukmini North VIP Gate</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Daily Pooja of Shri Rukmini (for 10 persons)<br>(only allowed 6 persons in gabhara)</td>
+                    <td>₹10000/-</td>
+                    <td>4:00 AM - 5:00 AM</td>
+                    <td>Shri Rukmini North VIP Gate</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Chandan Ooty Pooja of Shri Vitthal (for 10 persons)<br>(only allowed 2 persons in gabhara)</td>
+                    <td>₹2000/-</td>
+                    <td>4:30 PM - 5:15 PM</td>
+                    <td>Shri Sant Namdev Payri, Mukha Darshan Row</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Chandan Ooty Pooja of Shri Rukmini (for 10 persons)<br>(only allowed 2 persons in gabhara)</td>
+                    <td>₹1000/-</td>
+                    <td>4:30 PM - 5:15 PM</td>
+                    <td>Shri Sant Namdev Payri, Mukha Darshan Row</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Tulsi Archana Pooja (for 5 persons)</td>
+                    <td>₹700/-</td>
+                    <td>10:00 AM, 4:00 PM, 6:00 PM</td>
+                    <td>Shri Venkatesh Door</td>
+                </tr>
+            </table>
+
+            <h2>Important Notes:</h2>
+            <p>1. The Padya Pooja of Shri Vitthal Rukmini is not performed on Dashami, Ekadashi, Dwadashi, or during major pilgrimage periods (Chaitra, Magh, Ashadha, and Kartik yatras), as well as during Diwali, Navrathri And Christmas festivals.</p>
+            <p>2. During major pilgrimage periods (Chaitra, Magh, Ashadha, and Kartik yatras), daily Pooja for external devotees is available.</p>
+            <p>3. Shri. Chandan Ooty Pooja of Vitthal Rukmini Mata is performed from Chaitra Shuddha Pratipada usually to Mrug Nakshatra. The said pooja is available to the devotees on Dashami, Ekadashi and Dwadashi days of every month and fortnight only excluding Ekadashi and Yatra period.</p>
+            <p>4. For more details, contact: Office - 02186-XXXXXXX</p>
+        </div>
+    </main>
+
+    <script>
+        // Language selector functionality
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('change', function() {
+            document.documentElement.lang = this.value;
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchButton = document.querySelector('.search-container button');
+        
+        searchButton.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+
+        function performSearch(query) {
+            if (query.trim() === '') return;
+            // Implement search functionality here
+            console.log('Searching for:', query);
+        }
+    </script>
+</body>
+</html>

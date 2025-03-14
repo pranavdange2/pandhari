@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shri Vitthal Rukmini Temple, Pandharpur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #ffd8a1, #ffc77d);
+            color: #5a3c2a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            /* Added to prevent scrollbar jumps during page transitions */
+            overflow-y: scroll;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Header styles - Modified to ensure fixed positioning */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add padding to main content to prevent overlap with fixed header */
+        main {
+            padding-top: 120px; /* Adjust based on header height */
+            min-height: calc(100vh - 120px); /* Ensure main content fills viewport minus header */
+        }
+
+        .top-nav {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            color: #ffecd1;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Enhanced language selector */
+        .language-selector {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        #language-select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            appearance: none;
+            padding-right: 25px;
+        }
+
+        .language-selector::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            pointer-events: none;
+        }
+
+        #language-select:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced search container */
+        .search-container {
+            display: flex;
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 8px 12px;
+            border: 1px solid #a32525;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-container input:focus {
+            width: 220px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #a32525;
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #9e2d2d;
+        }
+
+        /* Search results dropdown */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .search-results ul {
+            padding: 0;
+        }
+
+        .search-results li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .search-results li:hover {
+            background-color: #ffefd1;
+        }
+
+        .search-results .highlight {
+            background-color: #ffeb3b;
+            font-weight: bold;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .main-nav {
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 0;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav li a {
+            color: #5a3c2a;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav li a:hover {
+            background-color: #ffd8a1;
+            color: #a32525;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background-color: rgba(255, 239, 211, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown .dropdown {
+            position: relative;
+        }
+
+        .dropdown .dropdown > .dropdown-menu {
+            top: 0;
+            left: 100%;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            white-space: nowrap;
+        }
+
+        /* Dropdown indicators */
+        .dropdown > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        .dropdown .dropdown > a::after {
+            content: '\f105';
+            float: right;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .main-nav li {
+                border-bottom: 1px solid rgba(90, 60, 42, 0.1);
+            }
+
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                background-color: rgba(255, 239, 211, 0.5);
+                padding-left: 20px;
+            }
+
+            .dropdown .dropdown > .dropdown-menu {
+                left: 0;
+                padding-left: 40px;
+            }
+
+            .dropdown > a::after {
+                float: right;
+                margin-top: 8px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x500') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #a32525;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #9e2d2d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #a32525;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #a32525;
+            color: #a32525;
+            background-color: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: #a32525;
+            color: white;
+        }
+
+        .btn-donation {
+            background: linear-gradient(to right, #a32525, #e77d11);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-donation:hover {
+            background: linear-gradient(to right, #9e2d2d, #e77d11);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-amber {
+            background-color: #ffd8a1;
+            color: #5a3c2a;
+        }
+
+        .btn-amber:hover {
+            background-color: #ffc77d;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: rgba(255, 239, 211, 0.9);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #9e2d2d;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #e77d11;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, rgba(255, 239, 211, 0.9), #ffd8a1);
+            text-align: center;
+        }
+
+        .section-description {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .service-card {
+            background-color: rgba(255, 239, 211, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            color: #9e2d2d;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        .service-content p {
+            margin-bottom: 20px;
+            color: #5a3c2a;
+        }
+
+        .donation-button {
+            margin-top: 30px;
+        }
+
+        /* Expandable Sections */
+        .expandable-sections {
+            padding: 80px 0;
+            background-color: rgba(255, 239, 211, 0.9);
+        }
+
+        .expandable-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .expandable-section {
+            margin-bottom: 20px;
+            border: 1px solid #ffd8a1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ffd8a1;
+            cursor: pointer;
+        }
+
+        .expandable-header h3 {
+            color: #9e2d2d;
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: #9e2d2d;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .expand-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .expandable-content.active {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .expandable-content > div {
+            padding: 20px;
+        }
+
+        /* Daily Programme Styles */
+        .programme-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .programme-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ffd8a1;
+        }
+
+        .time {
+            font-weight: 600;
+            color: #9e2d2d;
+        }
+
+        /* Festival Styles */
+        .festival-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .festival-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ffd8a1;
+        }
+
+        .festival-date {
+            background-color: #ffd8a1;
+            color: #9e2d2d;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .date-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .date-month {
+            font-size: 0.9rem;
+        }
+
+        .festival-details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .festival-year {
+            background-color: #ffd8a1;
+            color: #9e2d2d;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Temple Grid Styles */
+        .temple-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .temple-item {
+            text-align: center;
+        }
+
+        .temple-image {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .temple-item:hover .temple-image {
+            transform: scale(1.05);
+        }
+
+        .temple-item h4 {
+            color: #9e2d2d;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 80px 0;
+            background-color: #ffd8a1;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-column, .appeals-column {
+            background-color: rgba(255, 239, 211, 0.9);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .appeals-column {
+            background-color: rgba(255, 239, 211, 0.9);
+        }
+
+        .column-title {
+            color: #9e2d2d;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ffd8a1;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        .news-list, .appeals-list {
+            margin-bottom: 30px;
+        }
+
+        .news-item, .appeal-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #ffd8a1;
+        }
+
+        .news-item a, .appeal-item a {
+            display: block;
+            transition: background-color 0.3s;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .news-item a:hover {
+            background-color: #ffd8a1;
+        }
+
+        .appeal-item a:hover {
+            background-color: #ffd8a1;
+        }
+
+        .news-item h3, .appeal-item h3 {
+            color: #5a3c2a;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .news-date {
+            color: #9e2d2d;
+            font-size: 0.9rem;
+        }
+
+        .download-link {
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .download-link span {
+            color: #9e2d2d;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .column-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Social Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 239, 211, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+            color: #9e2d2d;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            background-color: #ffd8a1;
+        }
+
+        /* Quick Action Buttons */
+        .quick-actions {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .action-btn {
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .donation-btn {
+            background: linear-gradient(to right, #a32525, #e77d11);
+            color: white;
+        }
+
+        .live-btn {
+            background-color: white;
+            color: #9e2d2d;
+            border: 1px solid #9e2d2d;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #a32525, #e77d11);
+            color: white;
+        }
+
+        .footer-main {
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-section ul {
+            margin-bottom: 20px;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+
+        .footer-bottom {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #a32525;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Page content container - MODIFIED */
+        #content-container {
+            position: relative;
+            min-height: 500px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Individual page containers - ADDED */
+        .page-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-container.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Loading indicator */
+        .loading-indicator {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .loading-indicator.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #a32525;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Shri Vitthal Page Content */
+        #shrivitthal-section .content {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 239, 211, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #shrivitthal-section h1 {
+            text-align: center;
+            color: #9e2d2d;
+            font-size: 30px;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        #shrivitthal-section h2 {
+            text-align: center;
+            color: #9e2d2d;
+            font-size: 24px;
+            text-shadow: 1px 1px 3px #e77d11;
+        }
+
+        #shrivitthal-section p {
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        /* Responsive Design - Enhanced for better mobile experience */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .social-sidebar {
+                left: 10px;
+            }
+            
+            .quick-actions {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust main content padding for smaller header on mobile */
+            main {
+                padding-top: 100px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .main-nav li {
+                border-bottom: 1px solid rgba(90, 60, 42, 0.1);
+            }
+
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                background-color: rgba(255, 239, 211, 0.5);
+                padding-left: 20px;
+            }
+
+            .dropdown .dropdown > .dropdown-menu {
+                left: 0;
+                padding-left: 40px;
+            }
+
+            .dropdown > a::after {
+                float: right;
+                margin-top: 8px;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .main-nav li a {
+                padding: 10px;
+            }
+            
+            /* Adjust dropdown positioning for mobile */
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: #ffd8a1;
+                padding-left: 20px;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 1;
+                visibility: visible;
+                transition: max-height 0.3s ease;
+            }
+            
+            .dropdown.active > .dropdown-menu {
+                max-height: 1000px;
+            }
+            
+            .dropdown .dropdown > .dropdown-menu {
+                left: 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-sidebar {
+                display: none;
+            }
+            
+            .quick-actions {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .action-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding-top: 90px;
+            }
+            
+            .top-nav .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .right-section {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-container input {
+                width: 140px;
+            }
+            
+            .search-container input:focus {
+                width: 180px;
+            }
+            
+            .hero {
+                height: 350px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .expandable-header h3 {
+                font-size: 1.1rem;
+            }
+            
+            .festival-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .festival-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .festival-year {
+                margin-top: 5px;
+            }
+            
+            .temple-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-nav">
+      <div class="container">
+        <a href="home.html" class="logo" data-page="home">Shri Vitthal Rukmini Temple</a>
+        <div class="right-section">
+          <div class="language-selector">
+            <select id="language-select">
+              <option value="en">
+                English
+              </option>
+              <option value="mr">
+                मराठी
+              </option>
+              <option value="hi">
+                हिंदी
+              </option>
+            </select>
+          </div>
+          <div class="search-container">
+            <input type="search" id="search-input" placeholder="Search..."> <button type="button" id="search-button"></button>
+            <div class="search-results" id="search-results">
+              <ul id="results-list"></ul>
+            </div>
+          </div><button class="menu-toggle" id="menu-toggle"></button>
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <div class="container">
+        <ul>
+          <li><a href="home.html" data-page="home" class="nav-link">Home</a></li>
+          <li class="dropdown">
+            <a href="#" data-page="temple" class="nav-link">Temple</a>
+            <ul class="dropdown-menu">
+              <li><a href="shrivitthal.html" data-page="shrivitthal" class="nav-link">Shri Vitthal</a></li>
+              <li><a href="rukmini.html" data-page="rukmini" class="nav-link">Rukmini</a></li>
+              <li><a href="pandhari.html" data-page="pandhari" class="nav-link">Pandhari</a></li>
+              <li><a href="#" data-page="vari" class="nav-link">Vari</a></li>
+              <li><a href="contactus.html" data-page="contactus" class="nav-link">How to reach</a></li>
+              <li><a href="placestovisit.html" data-page="placestovisit" class="nav-link">Places to visit</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" data-page="trust" class="nav-link">About Trust</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" data-page="aboutus" class="nav-link">About Us</a></li>
+              <li class="dropdown">
+                <a href="#" data-page="committee" class="nav-link">Committee</a>
+                <ul class="dropdown-menu">
+                  <li><a href="commitee.html" data-page="Commitee" class="nav-link">Commitee Members</a></li>
+                  <li><a href="aboutmembers.html" data-page="executive" class="nav-link">About Members</a></li>
+                  <li><a href="advisorycouncil.html" data-page="advisory" class="nav-link">Advisory Council</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" data-page="dailyupdates" class="nav-link">Daily Updates</a>
+            <ul class="dropdown-menu">
+              <li><a href="dailyschedule.html" data-page="dailyschedule" class="nav-link">Daily Schedule</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" data-page="onlineservices" class="nav-link">Online Services</a>
+            <ul class="dropdown-menu">
+              <li><a href="livedarshan.html" data-page="livedarshan" class="nav-link">Live Darshan</a></li>
+              <li><a href="poojaservices.html" data-page="poojaservices" class="nav-link">Pooja Services</a></li>
+              <li><a href="passbooking.html" data-page="passbooking" class="nav-link">Pass Booking</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" data-page="elibrary" class="nav-link">E-Library</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" data-page="elibrary-sub1" class="nav-link">Sub Page 1</a></li>
+              <li><a href="#" data-page="elibrary-sub2" class="nav-link">Sub Page 2</a></li>
+              <li><a href="#" data-page="elibrary-sub3" class="nav-link">Sub Page 3</a></li>
+            </ul>
+          </li>
+          <li><a href="contactus.html" data-page="contactus" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="loading-indicator" id="loading-indicator">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+  <main>
+    <div id="content-container">
+      <div class="page-container active" id="home-container" data-page="home">
+        <section class="hero" id="home">
+          <div class="hero-content">
+            <h1>Welcome to Shri Vitthal Rukmini Temple</h1>
+            <p>Experience the divine presence of Lord Vitthal and Goddess Rukmini in Pandharpur</p>
+            <div class="hero-buttons">
+              <a href="passbooking.html" data-page="passbooking" class="btn btn-primary nav-link">Pass Booking</a> <a href="livedarshan.html" data-page="livedarshan" class="btn btn-secondary nav-link">Live Darshan</a>
+            </div>
+          </div>
+        </section>
+        <section class="about-section" id="temple">
+          <div class="container">
+            <h2 class="section-title">About the Temple</h2>
+            <div class="about-content">
+              <p>Shri Vitthal Rukmini Temple in Pandharpur is one of the most sacred pilgrimage sites in Maharashtra. Dedicated to Lord Vitthal, an incarnation of Vishnu, and his consort Rukmini, this temple attracts millions of devotees every year, especially during the Ashadi Ekadashi festival.</p><a href="aboutus.html" data-page="temple" class="btn btn-outline nav-link">Learn More</a>
+            </div>
+          </div>
+        </section>
+        <section class="services-section" id="onlineservices">
+          <div class="container">
+            <h2 class="section-title">Online Services</h2>
+            <p class="section-description">Experience the divine blessings of Lord Vitthal and Goddess Rukmini from anywhere in the world with our online services.</p>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-image"><img src="https://via.placeholder.com/400x200" alt="Online Darshan"></div>
+                <div class="service-content">
+                  <h3>Online Pass Booking</h3>
+                  <p>Book your darshan slot in advance and avoid waiting in long queues.</p><a href="#" data-page="passbooking" class="btn btn-primary nav-link">Book Now</a>
+                </div>
+              </div>
+              <div class="service-card">
+                <div class="service-image"><img src="https://via.placeholder.com/400x200" alt="Online Puja"></div>
+                <div class="service-content">
+                  <h3>Online Puja</h3>
+                  <p>Perform pujas and rituals from the comfort of your home.</p><a href="#" data-page="poojaservices" class="btn btn-primary nav-link">Book Puja</a>
+                </div>
+              </div>
+              <div class="service-card">
+                <div class="service-image"><img src="https://via.placeholder.com/400x200" alt="E-Prasad"></div>
+                <div class="service-content">
+                  <h3>E-Prasad</h3>
+                  <p>Receive blessed prasad delivered to your doorstep.</p><a href="#" data-page="e-prasad" class="btn btn-primary nav-link">Order Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="donation-button">
+              <a href="#" data-page="donation" class="btn btn-donation nav-link">Make a Donation</a>
+            </div>
+          </div>
+        </section>
+        <section class="expandable-sections" id="temple-info">
+          <div class="container">
+            <h2 class="section-title">Temple Information</h2>
+            <div class="expandable-container">
+              <div class="expandable-section">
+                <div class="expandable-header">
+                  <h3>Daily Programme</h3>
+                </div>
+                <div class="expandable-content active">
+                  <div class="programme-list">
+                    <div class="programme-item">
+                      <span class="time">4:00 AM</span> <span class="activity">Kakad Aarti</span>
+                    </div>
+                    <div class="programme-item">
+                      <span class="time">7:00 AM</span> <span class="activity">Balya Bhojan</span>
+                    </div>
+                    <div class="programme-item">
+                      <span class="time">10:00 AM</span> <span class="activity">Madhyan Aarti</span>
+                    </div>
+                    <div class="programme-item">
+                      <span class="time">6:00 PM</span> <span class="activity">Dhoop Aarti</span>
+                    </div>
+                    <div class="programme-item">
+                      <span class="time">10:30 PM</span> <span class="activity">Shej Aarti</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable-section">
+                <div class="expandable-header">
+                  <h3>Upcoming Festivals</h3>
+                </div>
+                <div class="expandable-content">
+                  <div class="festival-list">
+                    <div class="festival-item">
+                      <div class="festival-date">
+                        <div class="date-number">
+                          29
+                        </div>
+                        <div class="date-month">
+                          JUN
+                        </div>
+                      </div>
+                      <div class="festival-details">
+                        <h4>Ashadi Ekadashi</h4><span class="festival-year">2025</span>
+                      </div>
+                    </div>
+                    <div class="festival-item">
+                      <div class="festival-date">
+                        <div class="date-number">
+                          13
+                        </div>
+                        <div class="date-month">
+                          NOV
+                        </div>
+                      </div>
+                      <div class="festival-details">
+                        <h4>Kartiki Ekadashi</h4><span class="festival-year">2025</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="expandable-section">
+                <div class="expandable-header">
+                  <h3>Temple Complex</h3>
+                </div>
+                <div class="expandable-content">
+                  <div class="temple-grid">
+                    <div class="temple-item">
+                      <div class="temple-image"><img src="https://via.placeholder.com/200x200" alt="Main Temple"></div>
+                      <h4>Main Temple</h4>
+                    </div>
+                    <div class="temple-item">
+                      <div class="temple-image"><img src="https://via.placeholder.com/200x200" alt="Rukmini Temple"></div>
+                      <h4>Rukmini Temple</h4>
+                    </div>
+                    <div class="temple-item">
+                      <div class="temple-image"><img src="https://via.placeholder.com/200x200" alt="Pundalik Temple"></div>
+                      <h4>Pundalik Temple</h4>
+                    </div>
+                    <div class="temple-item">
+                      <div class="temple-image"><img src="https://via.placeholder.com/200x200" alt="Chandrabhaga River"></div>
+                      <h4>Chandrabhaga River</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="news-section" id="news">
+          <div class="container">
+            <div class="news-grid">
+              <div class="news-column">
+                <h2 class="column-title">Latest News</h2>
+                <ul class="news-list">
+                  <li class="news-item">
+                    <a href="#" data-page="news/1" class="nav-link">
+                    <h3>Temple to undergo renovation starting next month</h3>
+                    <p class="news-date">May 15, 2025</p></a>
+                  </li>
+                  <li class="news-item">
+                    <a href="#" data-page="news/2" class="nav-link">
+                    <h3>New online booking system launched for accommodation</h3>
+                    <p class="news-date">May 10, 2025</p></a>
+                  </li>
+                  <li class="news-item">
+                    <a href="#" data-page="news/3" class="nav-link">
+                    <h3>Special puja announced for upcoming solar eclipse</h3>
+                    <p class="news-date">May 5, 2025</p></a>
+                  </li>
+                </ul>
+                <div class="column-footer">
+                  <a href="#" data-page="news" class="btn btn-outline nav-link">Read More</a>
+                </div>
+              </div>
+              <div class="appeals-column">
+                <h2 class="column-title">Appeal</h2>
+                <ul class="appeals-list">
+                  <li class="appeal-item">
+                    <a href="#" data-page="appeal/1" class="nav-link">
+                    <h3>Support the Temple Restoration Fund</h3>
+                    <div class="download-link">
+                      <span>Donate</span>
+                    </div></a>
+                  </li>
+                  <li class="appeal-item">
+                    <a href="#" data-page="appeal/2" class="nav-link">
+                    <h3>Volunteer for the upcoming Ashadi Ekadashi festival</h3>
+                    <div class="download-link">
+                      <span>Register</span>
+                    </div></a>
+                  </li>
+                  <li class="appeal-item">
+                    <a href="#" data-page="appeal/3" class="nav-link">
+                    <h3>Contribute to the Temple's Green Initiative</h3>
+                    <div class="download-link">
+                      <span>Learn More</span>
+                    </div></a>
+                  </li>
+                </ul>
+                <div class="column-footer">
+                  <a href="#" data-page="appeal" class="btn btn-amber nav-link">View All Appeals</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="social-sidebar">
+      <a href="https://www.facebook.com/share/1USwEfYecC/" class="social-icon" title="Facebook"></a> <a href="https://www.instagram.com/vitthalrukminimandir_official?igsh=NWkxd2RtOTBrM21h" class="social-icon" title="Instagram"></a> <a href="https://x.com/TempleRukmini" class="social-icon" title="X"></a> <a href="https://youtube.com/@svrmsp?si=v7OS9HureFtCjcU4" class="social-icon" title="YouTube"></a>
+    </div>
+    <div class="quick-actions">
+      <a href="donationportal.html" data-page="donation" class="action-btn donation-btn nav-link">Donate Now</a> <a href="livedarshan.html" data-page="livedarshan" class="action-btn live-btn nav-link">Live Darshan</a>
+    </div>
+    <div class="back-to-top" id="back-to-top"></div>
+  </main>
+  <footer>
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <a href="livedarshan.html" data-page="darshan" class="nav-link">Live Darshan</a>
+              </li>
+              <li>
+                <a href="niwas.html" data-page="niwas" class="nav-link">Niwas</a>
+              </li>
+              <li>
+                <a href="passbooking.html" data-page="passbooking" class="nav-link">Pass Booking</a>
+              </li>
+              <li>
+                <a href="donationportal.html" data-page="donation" class="nav-link">Donation</a>
+              </li>
+              <li>
+                <a href="contactus.html" data-page="contactus" class="nav-link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us On</h3>
+            <ul class="social-links">
+              <li>
+                <a href="https://www.facebook.com/share/1USwEfYecC/">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/vitthalrukminimandir_official?igsh=NWkxd2RtOTBrM21h">Instagram</a>
+              </li>
+              <li>
+                <a href="https://x.com/TempleRukmini">X</a>
+              </li>
+              <li>
+                <a href="https://youtube.com/@svrmsp?si=v7OS9HureFtCjcU4">YouTube</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>For inquiries and support:</p>
+            <p><a href="tel:+912186223516">+91 2186 223516</a></p>
+            <p>Email:</p>
+            <p><a href="/cdn-cgi/l/email-protection#f49d9a929bb4829d80809c959886819f999d9a9dda9b8693"><span class="__cf_email__" data-cfemail="61080f070e211708151509000d13140a0c080f084f0e1306">[email&nbsp;protected]</span></a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Temple Address</h3>
+            <address>
+              Shri Vitthal Rukmini Temple<br>
+              Pandharpur, Solapur District,<br>
+              Maharashtra - 413304<br>
+              India
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>  Shri Vitthal Rukmini Temple, Pandharpur. All rights reserved.</p>
+        <div class="footer-links"></div>
+      </div>
+    </div>
+  </footer>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> 
+  <script>
+
+
+    /**
+     * Single Page Application Navigation System
+     * This script handles client-side navigation for the temple website
+     */
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cache for storing fetched pages
+        const pageCache = {};
+        
+        // Cache expiration time (30 minutes)
+        const CACHE_EXPIRATION = 30 * 60 * 1000;
+        
+        // Initialize navigation system
+        initNavigation();
+        
+        // Check URL hash on page load
+        if (window.location.hash) {
+            const pageId = window.location.hash.substring(1);
+            loadPage(pageId);
+        } else {
+            // Default to home page
+            loadPage('home');
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(e) {
+            const pageId = e.state ? e.state.pageId : 'home';
+            loadPage(pageId);
+        });
+        
+        /**
+         * Initialize navigation system
+         */
+        function initNavigation() {
+            // Add click event listeners to all navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the page ID from the data-page attribute
+                    const pageId = this.getAttribute('data-page');
+                    if (!pageId) return;
+                    
+                    // Get the href attribute if it exists
+                    const href = this.getAttribute('href');
+                    
+                    // Update URL without page reload (for browser history)
+                    history.pushState({ pageId: pageId }, '', '#' + pageId);
+                    
+                    // Load the requested page
+                    loadPage(pageId, href);
+                    
+                    // Close mobile menu if open
+                    const mainNav = document.getElementById('main-nav');
+                    const menuToggle = document.getElementById('menu-toggle');
+                    
+                    if (mainNav && mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+        }
+        
+        /**
+         * Load page content
+         * @param {string} pageId - The ID of the page to load
+         * @param {string|null} href - The URL of the page to fetch (if external)
+         */
+        async function loadPage(pageId, href = null) {
+            // Show loading indicator
+            const loadingIndicator = document.getElementById('loading-indicator');
+            loadingIndicator.classList.add('active');
+            
+            try {
+                // First check if we already have this page in our DOM
+                const existingPage = document.querySelector(`.page-container[data-page="${pageId}"]`);
+                
+                if (existingPage) {
+                    // Hide all page containers
+                    document.querySelectorAll('.page-container').forEach(container => {
+                        container.classList.remove('active');
+                    });
+                    
+                    // Show the requested page container
+                    existingPage.classList.add('active');
+                    loadingIndicator.classList.remove('active');
+                    
+                    // Scroll to top
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    
+                    return;
+                }
+                
+                // If page doesn't exist in DOM and we have a URL, fetch it
+                if (href && href !== '#') {
+                    // Check if page is in cache and not expired
+                    const now = Date.now();
+                    if (pageCache[href] && (now - pageCache[href].timestamp) < CACHE_EXPIRATION) {
+                        createPageContainer(pageId, pageCache[href].content);
+                        loadingIndicator.classList.remove('active');
+                        return;
+                    }
+                    
+                    // Fetch the content from the external page
+                    const response = await fetch(href);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load page: ${response.status}`);
+                    }
+                    
+                    const html = await response.text();
+                    
+                    // Cache the page
+                    pageCache[href] = {
+                        content: html,
+                        timestamp: now
+                    };
+
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const styles = doc.querySelectorAll('style, link[rel="stylesheet"]');
+
+                    styles.forEach(style => {
+                        const newStyle = style.cloneNode(true);
+                        document.head.appendChild(newStyle);
+                    });
+
+
+                    
+                    // Create a new page container with the fetched content
+                    createPageContainer(pageId, html);
+                    loadingIndicator.classList.remove('active');
+                    return;
+                }
+                
+                // If we get here, we couldn't find the page
+                // Default to home page
+                document.querySelectorAll('.page-container').forEach(container => {
+                    container.classList.remove('active');
+                });
+                document.getElementById('home-container').classList.add('active');
+                loadingIndicator.classList.remove('active');
+                
+            } catch (error) {
+                console.error('Error loading page:', error);
+                // Show home page on error
+                document.querySelectorAll('.page-container').forEach(container => {
+                    container.classList.remove('active');
+                });
+                document.getElementById('home-container').classList.add('active');
+                loadingIndicator.classList.remove('active');
+            }
+        }
+        
+        /**
+         * Create a new page container with the fetched content
+         * @param {string} pageId - The ID of the page
+         * @param {string} html - The HTML content
+         */
+        function createPageContainer(pageId, html) {
+            // Create a temporary element to parse the HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Find the main content in the loaded page
+            let content;
+            
+            // First try to find a specific section for this page
+            content = doc.getElementById(`${pageId}-section`);
+            
+            // If not found, look for the main content area
+            if (!content) {
+                content = doc.querySelector('main') || doc.body;
+            }
+            
+            // Hide all existing page containers
+            document.querySelectorAll('.page-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Create a new page container
+            const pageContainer = document.createElement('div');
+            pageContainer.className = 'page-container active';
+            pageContainer.id = `${pageId}-container`;
+            pageContainer.setAttribute('data-page', pageId);
+            
+            // Add the content to the new container
+            if (content) {
+                pageContainer.innerHTML = content.innerHTML;
+            } else {
+                pageContainer.innerHTML = '<div class="container"><h2>Content not found</h2></div>';
+            }
+            
+            // Add the new container to the content container
+            const contentContainer = document.getElementById('content-container');
+            contentContainer.appendChild(pageContainer);
+            
+            // Reinitialize any scripts or event handlers
+            reinitializeScripts();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        /**
+         * Reinitialize scripts and event handlers after content update
+         */
+        function reinitializeScripts() {
+            // Reinitialize expandable sections
+            const expandableSections = document.querySelectorAll('.expandable-section');
+            expandableSections.forEach(section => {
+                const header = section.querySelector('.expandable-header');
+                const content = section.querySelector('.expandable-content');
+                const button = section.querySelector('.expand-btn');
+                
+                if (header && content && button) {
+                    header.addEventListener('click', function() {
+                        content.classList.toggle('active');
+                        
+                        // Update icon
+                        const icon = button.querySelector('i');
+                        if (icon) {
+                            if (content.classList.contains('active')) {
+                                icon.classList.remove('fa-chevron-down');
+                                icon.classList.add('fa-chevron-up');
+                            } else {
+                                icon.classList.remove('fa-chevron-up');
+                                icon.classList.add('fa-chevron-down');
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // Re-add navigation event listeners to any new links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                // Remove existing event listeners to prevent duplicates
+                const newLink = link.cloneNode(true);
+                if (link.parentNode) {
+                    link.parentNode.replaceChild(newLink, link);
+                }
+            });
+            
+            // Reinitialize navigation
+            initNavigation();
+        }
+    });
+  </script> 
+  <script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.innerHTML = mainNav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInside = mainNav.contains(event.target) || menuToggle.contains(event.target);
+                if (!isClickInside && mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const searchResults = document.getElementById('search-results');
+            const resultsList = document.getElementById('results-list');
+            
+            // Content to search through (all headings and paragraphs)
+            const searchableContent = [];
+            document.querySelectorAll('h1, h2, h3, h4, p, .programme-item, .news-item h3, .appeal-item h3').forEach(element => {
+                searchableContent.push({
+                    text: element.textContent.trim(),
+                    element: element
+                });
+            });
+            
+            function performSearch(query) {
+                if (!query || query.length < 2) {
+                    searchResults.classList.remove('active');
+                    return;
+                }
+                
+                const results = searchableContent.filter(item => 
+                    item.text.toLowerCase().includes(query.toLowerCase())
+                );
+                
+                resultsList.innerHTML = '';
+                
+                if (results.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'No results found';
+                    resultsList.appendChild(li);
+                } else {
+                    results.slice(0, 5).forEach(result => {
+                        const li = document.createElement('li');
+                        
+                        // Highlight the matching text
+                        const regex = new RegExp(`(${query})`, 'gi');
+                        const highlightedText = result.text.replace(regex, '<span class="highlight">$1</span>');
+                        
+                        li.innerHTML = highlightedText;
+                        
+                        li.addEventListener('click', function() {
+                            // Scroll to the element
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            window.scrollTo({
+                                top: result.element.offsetTop - headerHeight,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Highlight the element briefly
+                            result.element.style.backgroundColor = '#ffeb3b';
+                            setTimeout(() => {
+                                result.element.style.backgroundColor = '';
+                            }, 2000);
+                            
+                            // Close search results
+                            searchResults.classList.remove('active');
+                            searchInput.value = '';
+                        });
+                        
+                        resultsList.appendChild(li);
+                    });
+                }
+                
+                searchResults.classList.add('active');
+            }
+            
+            searchInput.addEventListener('input', function() {
+                performSearch(this.value);
+            });
+            
+            searchButton.addEventListener('click', function() {
+                performSearch(searchInput.value);
+            });
+            
+            // Close search results when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !searchButton.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.remove('active');
+                }
+            });
+            
+            // Translation functionality
+            const languageSelect = document.getElementById('language-select');
+            
+            // Sample translations (in a real implementation, these would be more comprehensive)
+            const translations = {
+                'en': {
+                    'Welcome to Shri Vitthal Rukmini Temple': 'Welcome to Shri Vitthal Rukmini Temple',
+                    'Experience the divine presence': 'Experience the divine presence of Lord Vitthal and Goddess Rukmini in Pandharpur',
+                    'About the Temple': 'About the Temple',
+                    'Online Services': 'Online Services',
+                    'Temple Information': 'Temple Information',
+                    'Daily Programme': 'Daily Programme',
+                    'Upcoming Festivals': 'Upcoming Festivals',
+                    'Temple Complex': 'Temple Complex',
+                    'Latest News': 'Latest News',
+                    'Appeal': 'Appeal'
+                },
+                'mr': {
+                    'Welcome to Shri Vitthal Rukmini Temple': 'श्री विठ्ठल रुक्मिणी मंदिरात आपले स्वागत आहे',
+                    'Experience the divine presence': 'पंढरपूरमध्ये भगवान विठ्ठल आणि देवी रुक्मिणीच्या दिव्य उपस्थितीचा अनुभव घ्या',
+                    'About the Temple': 'मंदिराबद्दल',
+                    'Online Services': 'ऑनलाइन सेवा',
+                    'Temple Information': 'मंदिर माहिती',
+                    'Daily Programme': 'दैनिक कार्यक्रम',
+                    'Upcoming Festivals': 'आगामी सण',
+                    'Temple Complex': 'मंदिर परिसर',
+                    'Latest News': 'ताज्या बातम्या',
+                    'Appeal': 'अपील'
+                },
+                'hi': {
+                    'Welcome to Shri Vitthal Rukmini Temple': 'श्री विट्ठल रुक्मिणी मंदिर में आपका स्वागत है',
+                    'Experience the divine presence': 'पंढरपुर में भगवान विट्ठल और देवी रुक्मिणी की दिव्य उपस्थिति का अनुभव करें',
+                    'About the Temple': 'मंदिर के बारे में',
+                    'Online Services': 'ऑनलाइन सेवाएं',
+                    'Temple Information': 'मंदिर जानकारी',
+                    'Daily Programme': 'दैनिक कार्यक्रम',
+                    'Upcoming Festivals': 'आगामी त्योहार',
+                    'Temple Complex': 'मंदिर परिसर',
+                    'Latest News': 'ताज़ा खबर',
+                    'Appeal': 'अपील'
+                }
+            };
+            
+            languageSelect.addEventListener('change', function() {
+                const selectedLanguage = this.value;
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = selectedLanguage;
+                
+                // Translate main headings and content
+                document.querySelectorAll('h1, h2, h3, p').forEach(element => {
+                    const originalText = element.getAttribute('data-original') || element.textContent;
+                    
+                    // Store original text if not already stored
+                    if (!element.getAttribute('data-original')) {
+                        element.setAttribute('data-original', originalText);
+                    }
+                    
+                    // Translate if translation exists
+                    for (const [original, translated] of Object.entries(translations[selectedLanguage])) {
+                        if (originalText.includes(original)) {
+                            element.textContent = originalText.replace(original, translated);
+                            break;
+                        }
+                    }
+                });
+            });
+        });
+  </script>
+</body>
+</html>

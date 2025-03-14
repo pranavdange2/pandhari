@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Temple - Shri Vitthal Rukmini Temple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles from template */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #ffd8a1, #ffc77d);
+            color: #5a3c2a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            padding-top: 120px;
+            min-height: calc(100vh - 120px);
+        }
+
+        .top-nav {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #ffecd1;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-selector {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        #language-select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            appearance: none;
+            padding-right: 25px;
+        }
+
+        .search-container {
+            display: flex;
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 8px 12px;
+            border: 1px solid #a32525;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #a32525;
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* Main navigation with dropdowns */
+        .main-nav {
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 0;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav li a {
+            color: #5a3c2a;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav li a:hover {
+            background-color: #ffd8a1;
+            color: #a32525;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background-color: rgba(255, 239, 211, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown .dropdown {
+            position: relative;
+        }
+
+        .dropdown .dropdown > .dropdown-menu {
+            top: 0;
+            left: 100%;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            white-space: nowrap;
+        }
+
+        /* Dropdown indicators */
+        .dropdown > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        .dropdown .dropdown > a::after {
+            content: '\f105';
+            float: right;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page specific styles */
+        .about-section {
+            padding: 40px 0;
+        }
+
+        .page-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-heading h1 {
+            color: #a32525;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .page-heading p {
+            color: #5a3c2a;
+            font-size: 18px;
+        }
+
+        .content-section {
+            background: rgba(255, 239, 211, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #a32525;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding-top: 100px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                background-color: rgba(255, 239, 211, 0.5);
+            }
+
+            .dropdown .dropdown > .dropdown-menu {
+                left: 0;
+                padding-left: 20px;
+            }
+
+            .page-heading h1 {
+                font-size: 28px;
+            }
+
+            .page-heading p {
+                font-size: 16px;
+            }
+
+            .content-section {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <div class="container">
+                <a href="home.html" class="logo">Shri Vitthal Rukmini Temple</a>
+                <div class="right-section">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="mr">मराठी</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="aboutus.html">Temple History</a></li>
+                            <li><a href="templeact.html">Temple Act</a></li>
+                            <li><a href="templeschemes.html">Temple Schemes</a></li>
+                            <li class="dropdown">
+                                <a href="#">Administration</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="advisorycouncil.html">Advisory Council</a></li>
+                                    <li><a href="commitee.html">Committee Members</a></li>
+                                    <li><a href="aboutmembers.html">About Members</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Temple</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="shrivitthal.html">Shri Vitthal</a></li>
+                            <li><a href="rukmini.html">Rukmini</a></li>
+                            <li><a href="pandhari.html">Pandhari</a></li>
+                            <li><a href="niwas.html">Niwas</a></li>
+                            <li><a href="placestovisit.html">Places to Visit</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="dailyschedule.html">Daily Schedule</a></li>
+                    <li><a href="poojaservices.html">Pooja Services</a></li>
+                    <li><a href="livedarshan.html">Live Darshan</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="passbooking.html">Pass Booking</a></li>
+                            <li><a href="donationportal.html">Donation Portal</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>About Temple</h1>
+            <div class="image-container">
+                <img src="images/Temple1.jpg" alt="Temple">
+                <img src="images/Temple2.jpg" alt="Temple">
+            </div>
+            
+            <div class="content">
+                <h2>Shri Vitthal Rukmani temple Pandharpur</h2>
+                <p>Pandharpur Vitthal Rukmani Temple - Shri Vitthal Rukmani temple, Pandharpu  near Solapur is the main center of worship for the Hindu deity Vitthal, believed to be a local form of god Krishna or Vishnu and his consort Rakhumai or Rukmini. Shri Vitthal Rukmani temple is the main centre of worship for Vithoba, a form of the god Vishnu . A dip in the holy river Chandrabhaga on whose banks Pandharpur resides, is believed to have power to wash all sins. Prettily placed on the majestic banks of River Chandra bagha, Pundalik Temple portrays lord Vitthal as its chief deity. Vitthal is one among the manifestations of Lord Vishnu. The main shrine is a five-story building with a pyramidal gun spire. The statue of Jaya and Vijaya flanks Lord Vithal.</p>
+
+                <p>The main attraction in this square shaped temple is its portico, which has a measurement of 25' by 17'. This portico holds the idol of lord Shiva, which is protected by a brass cover. It is a customary practice that the devotees should wash their feet in the warm water spring that flows adjacent to the temple before they embark their dharshan of the lord. One among the embarrassing allure in the temple premises is the iron boat of 3 ft by 2 ft, which floats in the river water but appears too heavy to raise with hands. Timings in the temple is schedules between 4 AM -7 PM.</p>
+
+                <p>Rukmini Mandir in the district of Solapur is one of the chief deities of Pandharpur. This temple dedicated to her is placed on the banks of Chandra Bhaga river and it is commonly called as the Panduranga Temple. Lofty walls and colossal towers are the landmark signs of this lovely shrine. Situated on a high platform the temple stands 370 feet east-west houses and170 feet northwest. The entry to the temple is through the Namdev gate which is characterized by a plight of 12 steps. The temple holds the statue of Namdev who is figured with his tambourine. Though Rukmini is the wife of Lord Krishna she is not seen with her husband in this shrine. Legend has it that Rukmini is doing her penance and that's why she is depicted alone in her temple. Earlier the mandir has only a small shrine and portico and later a mandap, an antarala and a sabhamandap were added to the existing structures .</p>
+
+                <p>The Vishnupada literally is the lord's feet and the temple by this name situates with in the city limits. A lovely shrine on the majestic environ of the Chandrabhaga river is a breath taking site that allures the onlooker with its exquisite charm and prettiness. The temple is connected to the shore by a ramp. Constructed with stone masonry, the temple is in the shape of an open hall where sixteen pillars of stone support its flat roof. The pillar portrays images of Lord Krishna and Vishnu in their typical postures. The temple enshrines the lotus feet of the lord on rock, which are placed on a square. These rocks carries the footprints in two positions and one can also see the foot prints of a cow entrenched in it. One of the footprints shows cases the typical posture of Krishna standing on his left foot and the right foot crossed and resting on his toes. The other one depicts the lord on his both feet. Since the temple situates in the middle of the river temple shows water level up to its floor level and in the rainy months the temple is virtually submerges with the water .</p>
+
+                <p>A holy shrine of quite antiquity that holds Vithoba, a localized version of lord Krishna is one among the numerous devout destinations in Pandharpur. The temple is believed to be centuries old and the most amazing aspect in this holy shrine is the scripture that dates back to the year 1195.The devotees used to rub their back on this scripture, which is believed to absolve them from the wheel of rebirths. The lord is seen accompanied by his consort Rukmini. The deities look truly impressive with its blackish colour and in Navarathri and Dusshera celebrations they would be clothed with new clothes every day. The temple is open for the public for the whole day during Vari. After Vari the temple is washed with water and the deities would be fed with special meals</p>
+                <br>      
+                <h2>Legend of Vitthal Temple</h2>
+                <p>The "Vi" in Lord Vithoba's name denotes knowledge and "Thoba" denotes shape. He is the shape of knowledge or the idol of knowledge. Another interpretation is that the word "Vitthala" is said to be derived from the Marathi word "Vit", meaning brick. The reason behind the brick will be explained later in this article. "Ba" is used to denote "father" in Marathi. Lord Vithal/ Vitthal/ Vithoba is none other than Lord Vishnu, Lord Narayana or Lord Krishna. It is believed that Lord Krishna had incarnated at the end of Dwarpa Yuga on the eighth day of the dark fortnight in the holy month of Shravan (As per the Hindu calendar). He is lovingly called names like Pandrinath, Panduranga, Pandhairiraya, Vithai, Vithoba, Vithu-mauli, Vitthalgururao by his devotees. But the well-known and commonly used names are Pandurang / Panduranga and Shri Vitthal / Vithal. The word Vitthala is said to be derived from the Kannada (a language spoken in the southern parts of India) word for Lord Vishnu. The worship of Lord Vitthala has been derived mainly from the Puranas. His worship has been made well-known by the teachings, poems, kirtans, and pads of great Vaishnava saints of Maharashtra from the 13th through the 17th centuries. They were saints like Sant Namdeo /Namdev, Sant Jnaneshwar, Sant Eknath and Sant Tukaram. Pundalik, a saint was closely associated with this shrine, and hence this shrine is also known as Pundarika Pura.</p>
+
+                <p>According to the legend, there was once a devoted son called Pundalik. He looked after the needs of his father Janudev and his mother Satyavati. But things changed when Pundalik got married. He started ill treating them. Tired of his tyranny, the parents decided to head for Kashi / Varanasi. It is said that those who die in Kashi attain salvation and liberation from the cycle of birth and death. This is still believed today and many people travel there when they feel their end is near. Hearing his parents plans, Pundalik and his wife decided to join them. His treachery continued so much that he made his old parents walk throughout the journey while he and his young wife rode on a horse. On the way, they came across the hermitage of the venerable sage, Kukkutswami. Tired of the long journey, the group decided to spend some days there. That night, Pundalik lay awake and witnessed something remarkable. Just before dawn, he saw a group of beautiful, young women dressed in dirty clothes, enter the Sage's hermitage. They did chores like cleaning the floor, fetching water and washing the Sage's clothes. After that, they went to the prayer room. When they came out, their clothes were spotlessly clean and they disappeared. Pundalik wasn't alarmed seeing this but rather he felt at peace. He kept thinking about the incident the following day. He wanted to be sure that he was not dreaming but had truly witnessed such a glorious incident. So he remained awake again. But this time, he got closer and decided to speak to the women.</p>
+
+                <p>"Who are you all?"</p>
+
+                <p>"We are Ganga, Yamuna and all the holy rivers of India. People take a dip and bathe in us to wipe away their sins. The impurity of their mind, body and souls make us dirty. That's why you see our clothes in such filthy condition." </p>
+
+                <p>Pundalik was amazed with their answer.</p>
+
+                <p>"But you are the biggest sinner of all because of the way you treat your parents."</p>
+
+                <p>This was a rude awakening for Pundalik. He realized his mistake and changed his ways. He served his parents well and looked after all their needs and comforts. It is said that devotion in any form reaches God. Seeing Pundalik's sincere devotion towards his parents, Lord Vishnu was extremely pleased. He left his abode - Vaikauntha Lok to bless Pundalik.</p>
+
+                <p>Lord Vishnu reached Pundalik's house and knocked on his door but he was serving food to his parents. Pundalik saw the Lord at his door but his devotion to his parents was so intense that he wanted to finish his duties first and then attend to his guest. It didn't matter to him whether the guest was a mere mortal or God.</p>
+
+                <p>Pundalik gave the Lord a brick to stand on and asked Him to wait until his duty was completed. The ever-loving Lord was so pleased with his devotee that He waited for him. When Pundalik came out, he asked God's forgiveness for neglecting Him, but the Lord instead asked him to request a boon and it would be fulfilled.What more could a devotee ask when his Lord was standing right in front of him? Pundalik asked that He should remain on earth and bless all His devotees. His wish was granted and the Lord remained behind and is known as Vithoba or the Lord who stands on a brick.This form of the Lord is Swayambhu which means that His idol has not been carved or etched but it came into existence on its own. He is accompanied by His consort Rakhumai or Rukmini.</p> 
+                <br>
+                <h2>Daily Rituals and Vibrant Festivities</h2>
+                <p>Pandharpur Temple follows a deeply spiritual daily schedule, ensuring uninterrupted devotion from dawn to midnight. The day begins before sunrise with Kakada Aarti, a melodious prayer that awakens Lord Vitthal, filling the temple with divine energy. Devotees gather for Abhishekam, where sacred water and offerings purify the idol, symbolizing devotion and surrender. Throughout the day, various poojas, bhajans, and darshans keep the temple alive with faith and devotion. The evening Dhoop Aarti lights up the sanctum, symbolizing the triumph of light over darkness. The final ritual, Shejarati, is performed before closing, marking the deity’s rest for the night.
+
+                While Pandharpur is a hub of devotion all year, it truly comes alive during Ashadhi Ekadashi (June-July) and Kartiki Ekadashi (October-November). These festivals attract millions of Warkaris, who walk for days in the Palkhi Yatra, chanting the name of Vitthal. The entire town resonates with bhajans, dance, and unwavering devotion, creating an electrifying spiritual experience.</p>
+
+                <h2>Best Time to Visit</h2>
+                <p>Pandharpur is a divine destination that welcomes devotees year-round, but its true spirit shines during Ashadhi Ekadashi and Kartiki Ekadashi. These grand festivals, held in June-July and October-November, transform the town into a spiritual wonderland. Thousands of Warkaris arrive, singing bhajans and dancing in devotion, creating an electrifying atmosphere. The entire town resonates with chants of “Vitthal Vitthal,” filling hearts with divine joy.
+
+                For those seeking a quieter experience, the winter months from November to February are perfect. The cool, pleasant weather makes darshan and exploration comfortable. Without the festival crowds, visitors can peacefully absorb the temple’s sacred aura. Walking along the Chandrabhaga River, witnessing the serene ghats, and offering prayers to Lord Vitthal become deeply personal and meditative experiences. Whether amidst the festival’s vibrant energy or in winter’s tranquil embrace, Pandharpur offers a spiritual journey like no other, leaving devotees with a sense of inner peace and devotion.</p>
+                <br>
+                <h2>How to Reach Pandharpur</h2>
+                <p>Pandharpur is well-connected by road, rail, and air, making it easily accessible for pilgrims and travelers. The town has a well-developed road network, with regular MSRTC buses operating from Mumbai, Pune, Solapur, and Kolhapur. For a more comfortable journey, private taxis and cabs are also available, ensuring a hassle-free trip. For those traveling by train, Pandharpur Railway Station provides regular connections to Mumbai, Pune, and Solapur. Additionally, Solapur Junction, located 75 km away, serves as a major railway hub with extensive connectivity across India.
+
+                The nearest airport is Pune International Airport, approximately 210 km away. It offers flights to all major cities in India. From the airport, travelers can hire a taxi or take a bus to reach Pandharpur comfortably. With such seamless transport options, devotees and tourists can easily embark on their spiritual journey to this sacred town.</p>
+                <br>
+                <h2>A Journey of Faith and Devotion</h2>
+                <p>Pandharpur is not just a temple town; it is an embodiment of unwavering faith, devotion, and Maharashtra’s deep-rooted cultural heritage. Whether it’s the enchanting sight of Warkaris marching in unison, the grandeur of the temple’s rituals, or the divine experience of touching Vithoba’s feet, a visit to Pandharpur is bound to leave an indelible mark on one’s soul.
+
+                Whether you are a devout pilgrim or a curious traveler, Pandharpur promises an experience like no other—one that connects you with the divine and immerses you in spiritual bliss.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Language selector functionality
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('change', function() {
+            document.documentElement.lang = this.value;
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        const searchButton = document.querySelector('.search-container button');
+        
+        searchButton.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+
+        function performSearch(query) {
+            if (query.trim() === '') return;
+            // Implement search functionality here
+            console.log('Searching for:', query);
+        }
+    </script>
+    <footer>
+        &copy; 2025 Shri Vitthal Rukmini Temple | All Rights Reserved
+    </footer>
+</body>
+</html>

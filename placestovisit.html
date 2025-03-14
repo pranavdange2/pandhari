@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places to Visit in Pandharpur - Vitthal Rukmini Temple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #ffd8a1, #ffc77d);
+            color: #5a3c2a;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-nav {
+            background: linear-gradient(to right, #e77d11, #a32525);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .top-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: #ffecd1;
+        }
+
+        /* Main navigation with dropdowns */
+        .main-nav {
+            background-color: rgba(255, 239, 211, 0.9);
+            padding: 0;
+        }
+
+        .main-nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav li a {
+            color: #5a3c2a;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav li a:hover {
+            background-color: #ffd8a1;
+            color: #a32525;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background-color: rgba(255, 239, 211, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown .dropdown {
+            position: relative;
+        }
+
+        .dropdown .dropdown > .dropdown-menu {
+            top: 0;
+            left: 100%;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            white-space: nowrap;
+        }
+
+        /* Dropdown indicators */
+        .dropdown > a::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        .dropdown .dropdown > a::after {
+            content: '\f105';
+            float: right;
+        }
+
+        /* Content styles */
+        main {
+            padding-top: 120px;
+            min-height: calc(100vh - 120px);
+        }
+
+        .heading {
+            color: #a32525;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 239, 211, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .content img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #9e2d2d;
+            font-size: 26px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(231, 125, 17, 0.2);
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: linear-gradient(to right, #a32525, #e77d11);
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .top-nav {
+                padding: 10px 0;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                max-width: 95%;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <div class="container">
+                <a href="home.html" class="logo">Shri Vitthal Rukmini Temple</a>
+            </div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="home.html" data-page="home" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-page="temple" class="nav-link">Temple</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="shrivitthal.html" data-page="shrivitthal" class="nav-link">Shri Vitthal</a></li>
+                            <li><a href="rukmini.html" data-page="rukmini" class="nav-link">Rukmini</a></li>
+                            <li><a href="pandhari.html" data-page="pandhari" class="nav-link">Pandhari</a></li>
+                            <li><a href="#" data-page="vari" class="nav-link">Vari</a></li>
+                            <li><a href="contactus.html" data-page="contactus" class="nav-link">How to reach</a></li>
+                            <li><a href="placestovisit.html" data-page="placestovisit" class="nav-link">Places to visit</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="trust" class="nav-link">About Trust</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-page="aboutus" class="nav-link">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-page="committee" class="nav-link">Committee</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="commitee.html" data-page="Commitee" class="nav-link">Commitee Members</a></li>
+                                    <li><a href="aboutmembers.html" data-page="executive" class="nav-link">About Members</a></li>
+                                    <li><a href="advisorycouncil.html" data-page="advisory" class="nav-link">Advisory Council</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="dailyupdates" class="nav-link">Daily Updates</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="dailyschedule.html" data-page="dailyschedule" class="nav-link">Daily Schedule</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="onlineservices" class="nav-link">Online Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="livedarshan.html" data-page="livedarshan" class="nav-link">Live Darshan</a></li>
+                            <li><a href="poojaservices.html" data-page="poojaservices" class="nav-link">Pooja Services</a></li>
+                            <li><a href="passbooking.html" data-page="passbooking" class="nav-link">Pass Booking</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-page="elibrary" class="nav-link">E-Library</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-page="elibrary-sub1" class="nav-link">Sub Page 1</a></li>
+                            <li><a href="#" data-page="elibrary-sub2" class="nav-link">Sub Page 2</a></li>
+                            <li><a href="#" data-page="elibrary-sub3" class="nav-link">Sub Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contactus.html" data-page="contactus" class="nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="heading">
+            Places to Visit in Pandharpur
+        </div>
+
+        <div class="content">
+            <h2>Shri Vitthal Rukmini Temple</h2>
+            <img src="images/VithalTem1.jpg" alt="Vitthal Rukmini Temple">
+            <p>
+                Known as the crown jewel of Pandharpur, this temple is one of the most important pilgrimage sites in Maharashtra. Dedicated to Lord Vitthal and his consort Rukmini, this temple is famous for its stunning architecture and lively festivals, especially during Ashadhi Ekadashi. The temple attracts thousands of devotees who come to seek blessings and immerse themselves in its divine atmosphere, making it one of the top tourist attractions in Pandharpur.</p>
+            <p><b>Timings:</b> 4 AM – 11 PM</p>
+            <p><b>Location:</b> SH-141, Isbavi, Pandharpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 2 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Pundalik Temple</h2>
+            <img src="images/VithalTem2.jpg" alt="Pundalik Temple">
+            <p>
+                Dedicated to Pundalik, the revered devotee of Lord Vitthal, this temple is a calm spot located by the beautiful Chandrabhaga River. This temple holds significant importance in the region, believed to be the place where Lord Vitthal appeared to Pundalik. The peaceful surroundings and the sound of flowing water create a peaceful environment for reflection and prayer, making it one of the cherished places on the Pandharpur tourist places list.</p>
+            <p><b>Timings:</b> 6 AM – 11 PM</p>
+            <p><b>Location:</b> Near the banks of the Chandrabhaga River, Pandharpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 3 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>ISKCON Pandharpur</h2>
+            <img src="images/VithalTem3.jpg" alt="ISKCON Pandharpur">
+            <p>
+                ISKCON Pandharpur is a vibrant temple dedicated to Lord Krishna, run by the International Society for Krishna Consciousness. The temple’s architecture is stunning, and it hosts regular cultural programs, bhajans, and spiritual discourses. Devotees visiting this temple experience a lively atmosphere, making it the best addition to the places to visit in Pandharpur. </p>
+
+            <p><b>Timings:</b> 4 AM – 1 PM, 2 PM – 8 PM</p>
+            <p><b>Location:</b> ISKCON Temple Road, Shegaon Dumala, Maharashtra 413304</p>
+            <p><b>Distance:</b> 5 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Kala Maruti Mandir</h2>
+            <img src="images/VithalTem4.jpg" alt="Kala Maruti Mandir">
+            <p>This temple is devoted to Lord Hanuman and is famous for its distinctive black idol of the deity. Devotees visit this temple to pray for strength and courage, and it is particularly popular on Tuesdays and Saturdays. The temple’s charm and significance make it a worthy addition to the list of places to visit in Pandharpur.</p>
+
+            <p><b>Timings:</b> 6 AM – 11:15 PM</p>
+            <p><b>Location:</b> Pradakshina Road, Chouphala, Pandharpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 2 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Padmavati Mandir</h2>
+            <img src="images/VithalTem5.jpg" alt="Padmavati Mandir">
+            <p>
+                Dedicated to Goddess Padmavati, the consort of Lord Vitthal, this temple is beautifully decorated and attracts numerous visitors seeking blessings for prosperity and happiness. Its peaceful ambience makes it a perfect spot for prayer and meditation, strengthening its importance among the best places in this sacred town.</p>
+            <p><b>Timings:</b> 5 AM – 12 PM, 4 PM – 9 PM</p>
+            <p><b>Location:</b> Railway Station Road, Pandharpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 2 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Namdev Mandir</h2>
+            <img src="images/VithalTem6.jpg" alt="Namdev Mandir">
+            <p>
+                Built-in dedication to Saint Namdev, a prominent saint and devotee of Lord Vitthal, this temple shows the teachings and philosophy of Namdev, and it is frequented by devotees wanting spiritual guidance. The temple’s pleasant atmosphere makes it a loved destination, highlighting its importance among the places for Pandharpur trip.</p>
+            <p><b>Timings:</b>6 AM – 11 PM</p>
+            <p><b>Location:</b> Pradakshina Road, Pandharpur, Maharashtra 413304 </p>
+            <p><b>Distance:</b> 2 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Dnyaneshwar Mandir</h2>
+            <img src="images/VithalTem7.jpg" alt=" Dnyaneshwar Mandir">
+            <p>This is a temple built to celebrate Sant Dnyaneshwar, a saint whose teachings greatly influenced Marathi literature and spirituality. It is decorated with beautiful carvings and is a peaceful place for worship. Visitors come here to seek inspiration from the saint’s teachings, supporting its position as a significant place to explore. </p>
+            <p><b>Timings:</b> 6 AM – 11 AM, 4 PM – 10:30 PM</p>
+            <p><b>Location:</b> Nath Chouk, Gandhi Rd, Chouphala, Pandharpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 2 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Shri Gopalkrishna Temple</h2>
+            <img src="images/VithalTem7.jpg" alt=" Shri Gopalkrishna Temple">
+            <p>This temple is another important religious site in Pandharpur, dedicated to Lord Krishna in his Gopala form. This temple, known for its beautiful idols and serene atmosphere, is among the best tourist places in Pandharpur. Visitors often come here to seek blessings and participate in the daily rituals. The temple stands as a testament to the deep-rooted devotion in the town, cementing its place among the top attractions of the town. </p>
+            <p><b>Timings:</b> 6 AM – 12 PM, 5 PM – 9 PM</p>
+            <p><b>Location:</b> M87W+GVH, Gopalpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 3.5 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Shri Gopalkrishna Temple</h2>
+            <img src="images/VithalTem8.jpg" alt=" Shri Gopalkrishna Temple">
+            <p>This temple is another important religious site in Pandharpur, dedicated to Lord Krishna in his Gopala form. This temple, known for its beautiful idols and serene atmosphere, is among the best tourist places in Pandharpur. Visitors often come here to seek blessings and participate in the daily rituals. The temple stands as a testament to the deep-rooted devotion in the town, cementing its place among the top attractions of the town. </p>
+            <p><b>Timings:</b> 6 AM – 12 PM, 5 PM – 9 PM</p>
+            <p><b>Location:</b> M87W+GVH, Gopalpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 3.5 km from Pandharpur Railway Station</p>
+        </div>
+
+        <div class="content">
+            <h2>Vishnupad Temple</h2>
+            <img src="images/VithalTem9.jpg" alt=" Vishnupad Temple">
+            <p> Among various other Pandharpur tourist places, this temple is situated near the sacred River Bhima and is dedicated to Lord Vishnu. The temple is known for its historical significance and beautiful architecture. Pilgrims gather here to pay their respects and offer prayers, especially during auspicious occasions. The calm riverside setting enhances the spiritual experience, making it one of the essential places to visit in Pandharpur.</p>
+            <p><b>Timings:</b> 4:30 AM – 11:30 PM</p>
+            <p><b>Location:</b> Gopalpur, Pandharpur, Maharashtra 413304</p>
+            <p><b>Distance:</b> 3.5 km from Pandharpur Railway Station</p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Shri Vitthal Rukmini Temple | All Rights Reserved
+    </footer>
+</body>
+</html>

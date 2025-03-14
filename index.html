@@ -782,25 +782,62 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 100;
+            z-index: 999;
         }
 
         .social-icon {
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 239, 211, 0.9);
+            background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background-color 0.3s;
-            color: #9e2d2d;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .social-icon:hover {
             transform: scale(1.1);
-            background-color: #ffd8a1;
+        }
+
+        .social-icon i {
+            font-size: 22px;
+        }
+
+        /* Brand-specific colors */
+        .social-icon[title="Facebook"] i {
+            color: #1877f2;
+        }
+
+        .social-icon[title="Instagram"] i {
+            background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .social-icon[title="X"] i {
+            color: #000000;
+        }
+
+        .social-icon[title="YouTube"] i {
+            color: #ff0000;
+        }
+
+        @media (max-width: 768px) {
+            .social-sidebar {
+                left: 10px;
+            }
+            
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .social-icon i {
+                font-size: 18px;
+            }
         }
 
         /* Quick Action Buttons */
@@ -1520,7 +1557,7 @@
       </div>
     </div>
     <div class="social-sidebar">
-      <a href="https://www.facebook.com/share/1USwEfYecC/" class="social-icon" title="Facebook"></a> <a href="https://www.instagram.com/vitthalrukminimandir_official?igsh=NWkxd2RtOTBrM21h" class="social-icon" title="Instagram"></a> <a href="https://x.com/TempleRukmini" class="social-icon" title="X"></a> <a href="https://youtube.com/@svrmsp?si=v7OS9HureFtCjcU4" class="social-icon" title="YouTube"></a>
+      <a href="https://www.facebook.com/share/1USwEfYecC/" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a> <a href="https://www.instagram.com/vitthalrukminimandir_official?igsh=NWkxd2RtOTBrM21h" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a> <a href="https://x.com/TempleRukmini" class="social-icon" title="X"><i class="fab fa-x-twitter"></i></a> <a href="https://youtube.com/@svrmsp?si=v7OS9HureFtCjcU4" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="quick-actions">
       <a href="donationportal.html" data-page="donation" class="action-btn donation-btn nav-link">Donate Now</a> <a href="livedarshan.html" data-page="livedarshan" class="action-btn live-btn nav-link">Live Darshan</a>
